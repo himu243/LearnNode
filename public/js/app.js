@@ -9,7 +9,8 @@ messageOne.textContent = ""
 messageTwo.textContent = ""
 
 const fetchForecast = (address) => {
-    const forecastUrl =  encodeURI("http://localhost:3000/weather?address="+address)
+    const forecastUrl =  encodeURI("/weather?address="+address)
+    console.log(forecastUrl)
     fetch(forecastUrl)
     .then((data) => {
         data.json().then((response) => {

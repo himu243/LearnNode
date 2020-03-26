@@ -4,6 +4,7 @@ const hbs = require('hbs')
 const validator = require('validator')
 // Express
 const app = express()
+const port = process.env.PORT || 3000
 // API Caller
 const geocodeAPI = require('./utils/geocode')
 const forcastAPI = require('./utils/forecast')
@@ -48,7 +49,6 @@ app.get('/help', (req,res) => {
 })
 
 app.get('/weather', (req, res) => {
-    debugger
     const { address } = req.query
     if (!address || validator.default.isEmpty(address)) {
         res.send({error: "Address needed"})
@@ -88,6 +88,6 @@ app.get('*', (req, res) => {
     })
 })
 //
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port)
 })
