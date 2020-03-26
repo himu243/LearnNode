@@ -17,7 +17,7 @@ const fetchForecast = (address) => {
             if(response.error) {
                 setMessages(response.error, "")
             } else {
-                setMessages("For Address: " + address + " Forecast summary is: " + response.summary + " and Precip type is: " + response.precipType, "")
+                setMessages("For Address: " + address.toUpperCase() + ", Current summary is: " + response.current_summary + " and Daily summary is: " + response.daily_summary, "")
             }
         })
     })

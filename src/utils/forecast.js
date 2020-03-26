@@ -9,7 +9,7 @@ const forecast = (lat, long, callback) => {
         } else if (body.error) {
             callback(body.error)
         } else{
-            callback(null, body.currently)
+            callback(null, { current_summary: body.currently.summary, daily_summary: body.daily.summary })
         }
     })
 }
